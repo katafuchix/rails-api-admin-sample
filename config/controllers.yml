@@ -1,0 +1,9 @@
+paging_per:
+  prof_masters:
+    list: 20
+  manage_roles:
+    list: 20
+  categories:
+    list: 20
+  sub_categories:
+    list: 20

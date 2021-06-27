@@ -1,0 +1,179 @@
+<!-- Content Header (Page header) -->
+
+<%
+controller_name = controller.controller_name
+action = controller.action_name.to_sym
+model = Object.const_get('AppConfig')
+%>
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark"><%=  model.model_name %> <%= model.human_attribute_name(action) %></h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+<%= form_with(model: @config, method: "patch", :url => {:action => :update} , local: true) do |form| %>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- center column -->
+      <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-info">
+          <div class="card-header">
+            <h3 class="card-title">共通設定</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+            <div class="card-body">
+              <div class="form-group">
+                <%= form.label model.human_attribute_name :app_name %>
+                <%= form.text_field :app_name, class:"form-control", placeholder:"アプリ名を入力してください" %>
+              </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /center column -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- / container-fluid -->
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-6">
+
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Android設定</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+            <div class="card-body">
+              <div class="form-group">
+                <div class="custom-control custom-switch">
+                  <%= form.check_box :android_is_maintenance, class: "custom-control-input", id: "customSwitch1_android",:as => :boolean%>
+                  <label class="custom-control-label" for="customSwitch1_android">
+                    <%= I18n.t('activerecord.attributes.app_config.android_is_maintenance') %>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= form.label model.human_attribute_name :android_maintenance_message %>
+                <%= form.text_field :android_maintenance_message, class:"form-control", placeholder:"" %>
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="form-group">
+                <div class="custom-control custom-switch">
+                  <%= form.check_box :android_is_force_update, class: "custom-control-input", id: "customSwitch2_android",:as => :boolean%>
+                  <label class="custom-control-label" for="customSwitch2_android">
+                    <%= I18n.t('activerecord.attributes.app_config.android_is_force_update') %>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= form.label model.human_attribute_name :android_force_update_version %>
+                <%= form.text_field :android_force_update_version, class:"form-control", placeholder:"" %>
+              </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <!-- /left column -->
+
+
+      <!-- right column -->
+      <div class="col-md-6">
+        <!-- Form Element sizes -->
+        <div class="card card-success">
+          <div class="card-header">
+            <h3 class="card-title">iOS設定項目</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <div class="custom-control custom-switch">
+                <%= form.check_box :ios_is_maintenance, class: "custom-control-input", id: "customSwitch1_ios",:as => :boolean%>
+                <label class="custom-control-label" for="customSwitch1_ios">
+                  <%= I18n.t('activerecord.attributes.app_config.ios_is_maintenance') %>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= form.label model.human_attribute_name :ios_maintenance_message %>
+              <%= form.text_field :ios_maintenance_message, class:"form-control", placeholder:"" %>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+              <div class="custom-control custom-switch">
+                <%= form.check_box :ios_is_force_update, class: "custom-control-input", id: "customSwitch2_ios",:as => :boolean%>
+                <label class="custom-control-label" for="customSwitch2_ios">
+                  <%= I18n.t('activerecord.attributes.app_config.ios_is_force_update') %>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= form.label model.human_attribute_name :ios_force_update_version %>
+              <%= form.text_field :ios_force_update_version, class:"form-control", placeholder:"" %>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /right column -->
+
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- / container-fluid -->
+
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- /.col-md-6 -->
+      <div class="col-lg-12">
+
+        <div class="card">
+          <!-- /.card-header -->
+            <div class="card-footer">
+              <%= form.submit I18n.t('helpers.submit.update') , class:"btn btn-sm btn-primary" %>
+            </div>
+          <!-- /.card-body -->
+        </div>
+
+      </div>
+      <!-- /.col-md-6 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+
+
+<% end %>
+
+
+
+
+</div>
+<!-- /.content -->

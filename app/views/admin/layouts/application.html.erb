@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>管理画面</title>
+    <meta charset="UTF-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  </head>
+
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+      <!-- Navbar -->
+      <%= render 'admin/layouts/navbar' %>
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+      <%= render 'admin/layouts/sidebar' %>
+      <!-- / Main Sidebar Container -->
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
+      <!-- /.content-wrapper -->
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+        <div class="p-3">
+          <h5>Title</h5>
+          <p>Sidebar content</p>
+        </div>
+      </aside>
+      <!-- /.control-sidebar -->
+
+      <!-- Main Footer -->
+      <%= render 'admin/layouts/footer' %>
+      <!-- / Main Footer -->
+
+    </div>
+    <!-- ./wrapper -->
+  </body>
+
+<script>
+$(function () {
+  $('tbody tr[data-href]').addClass('clickable').click( function() {
+    window.location = $(this).attr('data-href');
+  }).find('a').hover( function() {
+      $(this).parents('tr').unbind('click');
+  }, function() {
+      $(this).parents('tr').click( function() {
+          window.location = $(this).attr('data-href');
+      });
+  });
+});
+</script>
+
+</html>

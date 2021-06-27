@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      category: カテゴリ
+    attributes:
+      category:
+        image: アイコン
+        name: 名前
+        enabled: 表示
+        sort_order: 並び順
+  category:
+    message:
+      created: カテゴリを作成しました
+      deleted: カテゴリを削除しました
+      updated: カテゴリを更新しました

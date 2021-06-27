@@ -1,0 +1,2 @@
+class CategoryImageUploader < BaseUploader
+end

@@ -1,0 +1,106 @@
+<!-- Content Header (Page header) -->
+
+<%
+controller_name = controller.controller_name
+action = controller.action_name.to_sym
+model = Object.const_get('Category')
+%>
+
+<div class="content-header">
+  <div class="container-fluid">
+    <%= flash_messages %>
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- /.col-md-6 -->
+      <div class="col-lg-12">
+
+        <div class="card">
+          <!-- /.card-header -->
+
+          <section class="content">
+          <% action = @content.persisted? ? :update : :create %>
+          <%= form_with(model: @content, :url => {:action => action} , local: true, multipart: true) do |form| %>
+
+            <div class="card-body">
+              <div class="form-group col-sm-6">
+                <%= form.label model.human_attribute_name :name %><!-- <span class="badge badge-danger">必須</span> -->
+                <%= form.text_field :name, class:"form-control", required: true, placeholder:"名前を入力してください" %>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= form.label model.human_attribute_name :image %><br />
+                  <%=
+                      default_img = 'category/category.png'
+                      image_tag default_img , :size => '100x100', id: "preview", class: "image"
+                  %>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" name="category[image]" class="custom-file-input" id="image">
+                      <label class="custom-file-label" for="image" id="image_label">Choose file</label>
+                    </div>
+                    <!--<div class="input-group-append">
+                      <span class="input-group-text" id="upload_button">Upload</span>
+                    </div>-->
+                  </div>
+                </div>
+              </div>
+
+              <script>
+                $(function () {
+                  $('#image').on('change', function() {
+                    if ( $('#image').val() == '' )  return;
+
+                    var imagefile = $('#image').prop('files')[0];
+                    //console.log(imagefile);
+                    $('#image_label').text(imagefile.name);
+
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        $('#preview').attr('src', reader.result);
+                    }
+                    reader.readAsDataURL(imagefile);
+                  });
+
+                  $('#upload_button').on('click', function() {
+                      $('#upload_button').parents('form').submit();
+                  });
+                })
+              </script>
+
+              <div class="form-group col-sm-6">
+                <%= form.label model.human_attribute_name :sort_order %><!-- <span class="badge badge-danger">必須</span> -->
+                <%= form.text_field :sort_order, {class: "form-control" , required: true } %>
+              </div>
+
+              <div class="form-group col-sm-6">
+                <%= form.label model.human_attribute_name :enabled %><!-- <span class="badge badge-danger">必須</span> -->
+                <%= form.select :enabled, {:'表示' => true, :'非表示' => false}, {selected: @content.persisted? ? @content.enabled : ""}, {class: "custom-select" , required: true } %>
+              </div>
+
+            </div>
+            <div class="card-footer">
+              <%= form.submit @content.persisted? ? I18n.t('helpers.submit.update') : I18n.t('helpers.submit.create') , class:"btn btn-sm btn-primary" %>
+              <%= link_to I18n.t('helpers.submit.back'), {action: :index},  class: "btn btn-sm btn-secondary float-right" %>
+            </div>
+          <% end %>
+          </section>
+
+
+          <!-- /.card-body -->
+        </div>
+
+      </div>
+      <!-- /.col-md-6 -->
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->

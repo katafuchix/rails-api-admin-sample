@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      sub_category: サブカテゴリ
+    attributes:
+      sub_category:
+        image: アイコン
+        category: カテゴリ
+        name: 名前
+        enabled: 表示
+        sort_order: 並び順
+  sub_category:
+    message:
+      created: サブカテゴリを作成しました
+      deleted: サブカテゴリを削除しました
+      updated: サブカテゴリを更新しました

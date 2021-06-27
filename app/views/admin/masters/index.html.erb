@@ -1,0 +1,80 @@
+<!-- Content Header (Page header) -->
+
+<%
+controller_name = controller.controller_name
+action = controller.action_name.to_sym
+model = Object.const_get(@content_class.to_s)
+%>
+
+<div class="content-header">
+  <div class="container-fluid">
+    <%= flash_messages %>
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- /.col-md-6 -->
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-header ui-sortable-handle" style="cursor: move;">
+                <h3 class="card-title">
+                  <i class="ion ion-clipboard mr-1"></i>
+                  <%= @content_class.to_s %>
+                </h3>
+                <%= link_to(I18n.t('helpers.submit.create'),  {action: :new},  class: "btn btn-sm btn-info float-right" ) %>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="users_example" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th><%= model.human_attribute_name :name %></th>
+                  <th><%= model.human_attribute_name :enabled %></th>
+                  <th><%= model.human_attribute_name :sort_order %></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @contents.each do |p| %>
+                  <tr>
+                    <td><%= p.id %></td>
+                    <td><%= p.name %></td>
+                    <td><%= p.enabled %></td>
+                    <td><%= p.sort_order %></td>
+                    <td>
+                      <%= link_to I18n.t('helpers.submit.edit'), { action: :edit, id: p.id }, class: "btn btn-outline-primary btn-sm" %>
+                    </td>
+                    <td>
+                      <%= link_to I18n.t('helpers.submit.destroy'), { action: :destroy, id: p.id}, method: :delete, class:"btn btn-outline-danger btn-sm", data: { confirm: '本当によろしいでしょうか？' } %></td>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer clearfix">
+            <%= paginate @contents %>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.col-md-6 -->
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+
+
+<!-- /.content -->

@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      app_config: アプリ設定
+    attributes:
+      app_config:
+        app_name: アプリ名
+        android_maintenance_message:	android メンテナンス中メッセージ
+        android_is_force_update:	android 強制アップデートフラグ
+        android_force_update_version:	android 強制アップデートバージョン
+        android_is_maintenance: android メンテナンス中フラグ
+        ios_maintenance_message: iOSメンテナンス中メッセージ
+        ios_is_maintenance: iOSメンテナンス中フラグ
+        ios_force_update_version:	iOS強制アップデートバージョン
+        ios_is_force_update:	iOS強制アップデートフラグ
+  app_config:
+    message:
+      updated: アプリ設定を更新しました
