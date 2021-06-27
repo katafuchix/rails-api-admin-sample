@@ -48,21 +48,11 @@ Things you may want to cover:
 
 ・ http://localhost:3000/admin/
 
-```
-ログイン
-ID : risapennavi@gmail.com
-pass : risapennavi
-```
 
 ### swagger
 
 ・ http://localhost:3000/api/swagger
 
-```
-Basic認証
-ID : rspn-swg-ar
-pass : X8gTtufdZzhgntNW
-```
 
 ### webpackでエラーが出る場合
 
