@@ -1,25 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<div>
+<img width="500" alt="スクリーンショット 2021-06-27 12 41 36" src="https://user-images.githubusercontent.com/6063541/123532417-de782e00-d747-11eb-9da0-38aa2a3dec0b.png">
 
-Things you may want to cover:
+<img width="500" alt="スクリーンショット 2021-06-27 12 36 40" src="https://user-images.githubusercontent.com/6063541/123532430-f6e84880-d747-11eb-8b1d-92c0ec3bde01.png">
 
-* Ruby version
+</div>
+<div>
 
-* System dependencies
+<img width="500" alt="スクリーンショット 2021-06-27 12 37 53" src="https://user-images.githubusercontent.com/6063541/123532436-fbacfc80-d747-11eb-828f-805842ed337a.png">
 
-* Configuration
+<img width="500" alt="スクリーンショット 2021-06-27 12 40 05" src="https://user-images.githubusercontent.com/6063541/123532437-fcde2980-d747-11eb-83ac-8bcf8ca7d438.png">
 
-* Database creation
+</div>
+<div>
+  
+<img width="500" alt="スクリーンショット 2021-06-27 12 40 39" src="https://user-images.githubusercontent.com/6063541/123532438-fd76c000-d747-11eb-9995-27f391e11329.png">
 
-* Database initialization
+<img width="500" alt="スクリーンショット 2021-06-27 12 41 58" src="https://user-images.githubusercontent.com/6063541/123532424-ea63f000-d747-11eb-8601-293a66259993.png">
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+</div>
 
 * ...
 # rails-api-admin-sample
